@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envío de formulario con Fetch y FormSubmit</title>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <section class="main-seccion" id="seccion-13" data-dark>
+        <h2 class="main-seccion__h2">Validaciones de Formulario</h2>
+        <form action="https://formsubmit.co/facundoandrean22@gmail.com" method="POST" class="contact-form" target="_blank">
+            <legend>Envíanos tus comentarios</legend>
+            <!-- la etiqueta legend es una etiqueta interna de los formularios que es como si fuese el título del formulario -->
+            <input type="text" name="name" placeholder="Escribe tu nombre..." title="Nombre sólo acepta letras y espacios en blanco" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required>
+            <!-- el atributo title es el mensaje que el navegador le pone cuando hay algun error y nosotros podemos personalizar es mensaje a través de este atributo -->
+            <!-- el atributo pattern es para escribirle la expresión regular que valide el campo -->
+            <input type="email" name="email" placeholder="Escribe tu e-mail..." title="E-mail incorrecto" pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$" required>
+            <input type="text" name="subject" placeholder="Asunto a tratar..." title="El asunto es requerido" required>
+            <textarea name="comments" cols="50" rows="5" placeholder="Escribe tus comentarios..." data-pattern="^.{1,255}$" title="Tu comentario no debe exceder los 255 caracteres" required></textarea>
+            <!-- se usa un data atributte data-pattern para almacenar una expresión regular y asi trabajarla desde JS, por el motivo de que las textareas no soportan el atributo pattern -->
+            <input type="submit" value="Enviar">
+            <div class="contact-form-loader none-2">
+                <img src="assets/spinning-circles.svg" alt="Cargando">
+            </div>
+            <div class="contact-form-response none-2">
+                <p>Los datos han sido enviados</p>
+            </div>
+        </form>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
